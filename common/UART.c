@@ -39,5 +39,23 @@ void printWord(uint16_t word) {
     transmitByte('0' + (word % 10));                             /* Ones */
 }
 
+uint8_t recieveNumber(void) {
+    char hundreds = '0';
+    char tens = '0';
+    char ones = '0';
+    char new = '0';
+    do {
+        hundreds = tens;
+        tens = ones;
+        ones = new;
+        new = recieveByte();
+        transmitByte(new);
+    } while(new != '\r');
+
+    return (100*(hundreds-'0') + 10 *(tens-'0') + (ones-'0'));
+}
+
+
+
 
 

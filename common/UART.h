@@ -6,3 +6,4 @@ void transmitByte(uint8_t data);
 uint8_t recieveByte(void);
 void printString(const char myString[]);
 void printWord(uint16_t word);
+uint8_t recieveNumber(void);
